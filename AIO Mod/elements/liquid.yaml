@@ -1,0 +1,63 @@
+elements:
+
+  - elementId: SourWater        
+    specificHeatCapacity: 3.477
+    thermalConductivity: 0.909
+    liquidCompression: 1.01
+    speed: 100
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 25
+    gasSurfaceAreaMultiplier: 1
+    highTemp: 361.15  # 88�C
+    lowTemp: 252.15   # -21�C
+    lowTempTransitionTarget: SourGas 
+    lowTempTransitionOreId: DirtyIce
+    lowTempTransitionOreMassConversion: 0.5
+    highTempTransitionTarget: SourGas 
+    highTempTransitionOreId: DirtyIce
+    highTempTransitionOreMassConversion: 0.5
+    defaultTemperature: 300.15
+    defaultMass: 600
+    maxMass: 1000
+    molarMass: 21.446
+    lightAbsorptionFactor: 1
+    radiationAbsorptionFactor: 0.3
+    radiationPer1000Mass: 0
+    materialCategory: Unbreathable
+    tags:
+    - Mixture
+    isDisabled: false
+    state: Liquid
+    localizationID: STRINGS.ELEMENTS.SOURWATER.NAME
+    dlcId: ""
+
+  - elementId: LithiumBrine # 30% solution. keep in sync with desalinator!
+    maxMass: 1320
+    liquidCompression: 1.01
+    speed: 100
+    minHorizontalFlow: 0.01
+    minVerticalFlow: 0.01
+    specificHeatCapacity: 3.11
+    thermalConductivity: 0.609
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 25
+    gasSurfaceAreaMultiplier: 1
+    lowTemp: 250.65
+    highTemp: 375.9
+    lowTempTransitionTarget: BrineIce
+    highTempTransitionTarget: Steam
+    highTempTransitionOreId: Salt
+    highTempTransitionOreMassConversion: 0.5
+    defaultTemperature: 282.15
+    defaultMass: 1200
+    molarMass: 23.43
+    toxicity: 0
+    lightAbsorptionFactor: 0.35
+    radiationAbsorptionFactor: 0.85
+    radiationPer1000Mass: 0
+    tags:
+    - Mixture
+    isDisabled: false
+    state: Liquid
+    localizationID: STRINGS.ELEMENTS.LITHIUMBRINE.NAME
+    dlcId: ""

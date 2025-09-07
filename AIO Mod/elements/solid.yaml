@@ -1,0 +1,25 @@
+elements:
+
+  - elementId: SolidBorax
+    specificHeatCapacity: 0.24
+    thermalConductivity: 0.66
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 1
+    gasSurfaceAreaMultiplier: 1
+    strength: 0.7
+    highTemp: 1236.15
+    highTempTransitionTarget: MoltenSalt
+    defaultTemperature: 296
+    defaultMass: 100
+    maxMass: 500
+    hardness: 1
+    molarMass: 40
+    lightAbsorptionFactor: 1
+    radiationAbsorptionFactor: 0.46
+    radiationPer1000Mass: 0
+    materialCategory: ConsumableOre
+    buildMenuSort: 5
+    isDisabled: false
+    state: Solid
+    localizationID: STRINGS.ELEMENTS.SOLIDBORAX.NAME
+    dlcId: ""
