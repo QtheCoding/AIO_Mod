@@ -60,7 +60,7 @@ namespace AIO_Mod.ElementsData
             Element elementByHash = ElementLoader.FindElementByHash(element);
             if (elementByHash == null)
                 return;
-            AttributeModifier attributeModifier = new AttributeModifier(((Resource)((ModifierSet)Db.Get()).BuildingAttributes.OverheatTemperature).Id, degreeIncrease, elementByHash.name, false, false, true);
+            AttributeModifier attributeModifier = new AttributeModifier(Db.Get().BuildingAttributes.OverheatTemperature.Id, degreeIncrease, elementByHash.name, false, false, true);
             elementByHash.attributeModifiers.Add(attributeModifier);
         }
 
@@ -69,8 +69,30 @@ namespace AIO_Mod.ElementsData
             Element elementByHash = ElementLoader.FindElementByHash(element);
             if (elementByHash == null)
                 return;
-            AttributeModifier attributeModifier = new AttributeModifier(((Resource)((ModifierSet)Db.Get()).BuildingAttributes.Decor).Id, decorBonusMultiplier, elementByHash.name, true, false, true);
+            AttributeModifier attributeModifier = new AttributeModifier("Decor", decorBonusMultiplier, elementByHash.name, true, false, true);
             elementByHash.attributeModifiers.Add(attributeModifier);
+        }
+
+        //internal static void ConfigureElements()
+        //{
+        //    AddElementOverheatModifier((SimHashes)Elements.Borax_Solid, 100f);
+        //    //AddElementDecorModifier((SimHashes)Elements.Borax_Solid, -0.25f);
+        //}
+
+        public static void FinalizeElements()
+        {
+            foreach (var info in ElementUtil.elements)
+            {
+                var element = ElementLoader.FindElementByHash(info.SimHash);
+                if (element == null)
+                {
+                    Debug.LogError($"[AIO Mod] Element {info.id} with hash {info.SimHash} failed to register!");
+                }
+                else
+                {
+                    Debug.Log($"[AIO Mod] Element {info.id} finalized successfully.");
+                }
+            }
         }
     }
 }

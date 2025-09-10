@@ -24,14 +24,15 @@ elements:
     radiationAbsorptionFactor: 0.3
     radiationPer1000Mass: 0
     materialCategory: Unbreathable
-    tags:
-    - Mixture
+    # tags:
+    # - Mixture
     isDisabled: false
     state: Liquid
     localizationID: STRINGS.ELEMENTS.SOURWATER.NAME
     dlcId: ""
 
-  - elementId: LithiumBrine # 30% solution. keep in sync with desalinator!
+    # 30% solution. keep in sync with desalinator!
+  - elementId: LithiumBrine
     maxMass: 1320
     liquidCompression: 1.01
     speed: 100
