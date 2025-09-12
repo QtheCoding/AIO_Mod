@@ -75,16 +75,16 @@
     <Compile Include="Patches\Localization_Patches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="STRINGS.cs" />
-    <None Include="elements\gas.yaml">
+    <None Include="elements\AIO_gas.yaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="elements\liquid.yaml">
+    <None Include="elements\AIO_liquid.yaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="elements\solid.yaml">
+    <None Include="elements\AIO_solid.yaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="elements\special.yaml" />
+    <None Include="elements\AIO_special.yaml" />
     <None Include="mod.yaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
