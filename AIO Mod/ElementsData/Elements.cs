@@ -1,5 +1,6 @@
 using AIO_Mod.Utils;
 using Klei.AI;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ namespace AIO_Mod.ElementsData
         public static readonly Color32 ISOPROPANE_COLOR = new Color32((byte)167, (byte)151, (byte)232, byte.MaxValue);
         public static readonly Color32 SILVER_COLOR = new Color32((byte)107, (byte)117, (byte)125, byte.MaxValue);
         public static readonly Color32 SOURWATER_COLOR = new Color32((byte)130, (byte)104, (byte)65, byte.MaxValue);
+        public static readonly Color32 RAWLITHIUM_COLOR = new Color32(10, 20, 30, byte.MaxValue);
 
         public static readonly Color32 LITHIUMBRINE_COLOR = new Color32((byte)107, (byte)117, (byte)125, byte.MaxValue);
 
@@ -24,9 +26,10 @@ namespace AIO_Mod.ElementsData
         public static ElementInfo Borax_Solid = ElementInfo.Solid("SolidBorax", "solid_borax_kanim", BORAX_COLOR);
         public static ElementInfo Isopropane_Gas = ElementInfo.Gas("IsopropaneGas", ISOPROPANE_COLOR);
         //public static ElementInfo Silver_Solid = ElementInfo.Solid("SolidSilver", "solid_silver_kanim", SILVER_COLOR);
-        public static ElementInfo SourWater_Liquid = ElementInfo.Liquid("SourWater", SOURWATER_COLOR);
-
+        public static ElementInfo SourWater_Liquid = ElementInfo.Liquid("SourWater", RAWLITHIUM_COLOR);
+        //public static ElementInfo RawLithium = ElementInfo.Solid("RawLithium", "raw_lithium_kanim", RAWLITHIUM_COLOR);
         public static ElementInfo LithiumBrine = ElementInfo.Liquid("LithiumBrine", LITHIUMBRINE_COLOR);
+        public static ElementInfo UnobtaniumAlloy = ElementInfo.Solid("UnobtaniumAlloy", Color.grey);
 
 
         private static void SetAtmosphere(SimHashes element, Rottable.RotAtmosphereQuality quality)
@@ -36,6 +39,7 @@ namespace AIO_Mod.ElementsData
 
         public static void RegisterSubstances(List<Substance> list)
         {
+            Material material = list.Find((Predicate<Substance>)(e => e.elementID == SimHashes.Diamond)).material;
             HashSet<Substance> collection = new HashSet<Substance>()
             {
                 //Elements.LowGradeSand_Solid.CreateSubstanceFromElementTinted((SimHashes) (-1736594426)),
@@ -45,8 +49,9 @@ namespace AIO_Mod.ElementsData
                 Elements.Isopropane_Gas.CreateSubstance(),
                 //Elements.Silver_Solid.CreateSubstanceFromElementTinted((SimHashes) (-279785280)),
                 Elements.SourWater_Liquid.CreateSubstance(),
-
+                //Elements.RawLithium.CreateSubstance(false, material),
                 Elements.LithiumBrine.CreateSubstance(),
+                Elements.UnobtaniumAlloy.CreateSubstance(false, material)
 
             };
 

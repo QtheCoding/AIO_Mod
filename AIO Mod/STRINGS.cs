@@ -32,6 +32,11 @@ namespace AIO_Mod
                 public static LocString DESC = "A highly concentrated solution of chloride salts in water, mostly Sodium Chloride, typically found in underground reservoirs. It is a primary source of lithium for various industrial applications, but has traces of other valuable metals.";
 
             }
+            public class UNOBTANIUMALLOY
+            {
+                public static LocString NAME = "Neutronium Alloy";
+                public static LocString DESC = "An insanely durable and heat resistant alloy.\nRequired in the construction of large space structures.\nVery sparkly";
+            }
         }
     }
 }

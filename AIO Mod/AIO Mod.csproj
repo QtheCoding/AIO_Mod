@@ -67,10 +67,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buildings\NewRecipes\Exosuit_Forge.cs" />
+    <Compile Include="Buildings\NewRecipes\Gas_Range.cs" />
+    <Compile Include="Buildings\NewRecipes\Rock_Crusher.cs" />
+    <Compile Include="Buildings\NewRecipes\Soldering_Station.cs" />
     <Compile Include="ElementsData\Elements.cs" />
     <Compile Include="Patches\Disease_Patches.cs" />
     <Compile Include="Patches\ElementPatches\ElementLoader_Patches.cs" />
     <Compile Include="Patches\ElementPatches\Enum_Patches.cs" />
+    <None Include="anim\Elements\unobtaniumalloy\unobtaniumalloy_anim.bytes">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="anim\Elements\unobtaniumalloy\unobtaniumalloy_build.bytes">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Patches\ElementPatches\LegacyModMain_Patches.cs" />
     <Compile Include="Patches\Localization_Patches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,9 +108,18 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="anim\Elements\solid_borax\solid_borax.png">
+    <None Include="anim\Elements\solid_borax\solid_borax.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
+    <None Include="anim\Elements\unobtaniumalloy\unobtaniumalloy_0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="assets\textures\solidborax.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="assets\textures\unobtaniumalloy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="anim\Elements\solid_borax\solid_borax_anim.bytes">
