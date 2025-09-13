@@ -26,23 +26,24 @@ namespace AIO_Mod.Patches
         }
 
 
-        //[HarmonyPatch(typeof(ElementLoader), "CollectElementsFromYAML")]
-        //public class ElementLoader_CollectElementsFromYAML_Patch
-        //{
-        //    public static void Postfix(ElementLoader __instance, ref List<ElementLoader.ElementEntry> __result)
-        //    {
-        //        //Elements.ClearReenabledVanillaElementCodexTags(ref __result);
-        //    }
-        //}
+        [HarmonyPatch(typeof(ElementLoader), "CollectElementsFromYAML")]
+        public class ElementLoader_CollectElementsFromYAML_Patch
+        {
+            public static void Postfix(ElementLoader __instance, ref List<ElementLoader.ElementEntry> __result)
+            {
+                Elements.ClearReenabledVanillaElementCodexTags(ref __result);
+            }
+        }
 
-        //[HarmonyPatch(typeof(ElementLoader), "FinaliseElementsTable")]
-        //public class ElementLoader_FinaliseElementsTable_Patch
-        //{
-        //    public static void Postfix()
-        //    {
-        //        Elements.FinalizeElements();
-        //    }
-        //    //public static void Postfix() => Elements.ModifyExistingElements();
-        //}
+
+        [HarmonyPatch(typeof(ElementLoader), "FinaliseElementsTable")]
+        public class ElementLoader_FinaliseElementsTable_Patch
+        {
+            //public static void Postfix() => Elements.ModifyExistingElements();
+            public static void Postfix()
+            {
+                Elements.ModifyExistingElements();
+            }
+        }
     }
 }
