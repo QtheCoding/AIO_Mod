@@ -1,0 +1,247 @@
+name: STRINGS.WORLDS.TERRAMOONLET.NAME
+description: STRINGS.WORLDS.TERRAMOONLET.DESCRIPTION
+#nameTable: TERRA
+#asteroidIcon: asteroid_sandstone_start_kanim
+asteroidIcon: asteroid_baator_coldterra_kanim
+iconScale: 0.5
+disableWorldTraits: true
+
+worldsize:
+  X: 256
+  Y: 160
+layoutMethod: PowerTree
+
+fixedTraits:
+  - sunlightVeryHigh
+  - cosmicRadiatioVeryHigh
+
+seasons:
+  - RegolithMoonMeteorShowers
+  - MiniBadlandsMeteorShowers
+#  - TemporalTearMeteorShowers
+
+defaultsOverrides:
+  data:
+    DrawWorldBorder: true
+    DrawWorldBorderOverVacuum: false
+    WorldBorderThickness: 2
+    WorldBorderRange: 2
+    OverworldDensityMin: 20
+    OverworldDensityMax: 20
+    OverworldAvoidRadius: 10
+    OverworldSampleBehaviour: PoissonDisk
+    OverworldMinNodes: 1
+
+#startSubworldName: subworlds/sandstone/SandstoneStart
+#startingBaseTemplate: bases/sandstoneBase
+startSubworldName: subworlds/coldterra/Coldterra_ForestStart
+startingBaseTemplate:  bases/Baator_Forestonewayteleport  
+startingBasePositionHorizontal:
+  min: 0.5
+  max: 0.5
+startingBasePositionVertical:
+  min: 0.6
+  max: 0.6
+
+# List all the subworld files to load
+subworldFiles:
+  - name: subworlds/space/Space
+  - name: subworlds/coldterra/Coldterra_DustySurface 
+  - name: subworlds/coldterra/Coldterra_ForestStart
+  - name: subworlds/sandstone/SandstoneFrozen
+    minCount: 1
+  - name: subworlds/frozen/Frozen
+    minCount: 2
+  - name: subworlds/marsh/HotMarshSlush
+    minCount: 1
+  - name: subworlds/coldterra/Coldterra_FrozenJungle 
+    minCount: 1
+  - name: subworlds/coldterra/Coldterra_FrozenMetals
+    minCount: 2
+    maxCount: 4
+#  - name: subworlds/rust/RustFrozen
+  - name: subworlds/magma/Bottom
+  - name: subworlds/baator/Baator_LavaTube 
+  
+unknownCellsAllowedSubworlds: 
+  - tagcommand: Default
+    command: Replace
+    subworldNames:
+#      - subworlds/space/Space
+      - subworlds/sandstone/SandstoneFrozen
+  # ================================ 
+  # - Low priority Biomes - Space
+  # ================================ 
+  # At Surface
+  - tagcommand: DistanceFromTag
+    tag: AtSurface
+    minDistance: 0
+    maxDistance: 1
+    command: Replace
+    subworldNames:
+      - subworlds/space/Space
+  # ================================ 
+  # - High priority Biomes - Bottom
+  # ================================
+  # At Bottom -  should be added last to avoid board-override removing absysilte 
+  - tagcommand: DistanceFromTag
+    tag: AtStart
+    minDistance: 1
+    maxDistance: 1
+    command: Replace
+    subworldNames:
+      - subworlds/coldterra/Coldterra_DustySurface
+  # ================================ 
+  # - Low priority Biomes - Middle
+  # ================================
+  # Above lava
+  - tagcommand: DistanceFromTag
+    tag: AtSurface
+    minDistance: 3
+    maxDistance: 5
+    command: Replace
+    subworldNames:
+      - subworlds/sandstone/SandstoneFrozen
+      - subworlds/frozen/Frozen
+      - subworlds/marsh/HotMarshSlush
+      - subworlds/coldterra/Coldterra_FrozenJungle 
+      - subworlds/coldterra/Coldterra_FrozenMetals
+#  # below surface
+#  - tagcommand: DistanceFromTag
+#    tag: AtSurface
+#    minDistance: 3
+#    maxDistance: 3
+#    command: Replace
+#    subworldNames:
+#      - subworlds/coldterra/Coldterra_FrozenJungle 
+#      - subworlds/coldterra/Coldterra_FrozenMetals
+#      - subworlds/rust/RustFrozen
+  # ================================ 
+  # - High priority Biomes - Bottom
+  # ================================
+  # At Bottom -  should be added last to avoid board-override removing absysilte 
+  - tagcommand: DistanceFromTag
+    tag: AtDepths
+    minDistance: 0
+    maxDistance: 0
+    command: Replace
+    subworldNames:
+      - subworlds/magma/Bottom
+      - subworlds/baator/Baator_LavaTube  
+  # ================================ 
+  # - Medium priority Biomes - Surface
+  # ================================ 
+  # At Surface
+  - tagcommand: DistanceFromTag
+    tag: AtSurface
+    minDistance: 2
+    maxDistance: 2
+    command: Replace
+    subworldNames:
+      - subworlds/coldterra/Coldterra_DustySurface
+
+worldTemplateRules:
+#  # Gravitas
+#  - names:
+#    - expansion1::poi/warp/sender
+#    - expansion1::poi/warp/receiver
+#    listRule: GuaranteeAll
+#    priority: 500
+#    allowedCellsFilter:
+#      - command: Replace
+#        tagcommand: DistanceFromTag
+#        tag: AtStart
+#        minDistance: 1
+#        maxDistance: 2
+#      - command: IntersectWith
+#        zoneTypes: [ Sandstone, FrozenWastes, ToxicJungle, BoggyMarsh ]
+#      - command: ExceptWith
+#        tagcommand: AtTag
+#        tag: NoGravitasFeatures
+
+  # ================================ 
+  # - Points of interest - Biome Geysers
+  # ================================ 
+  - names:
+      - poi/hotmarsh/geyser_steam
+      - poi/hotmarsh/geyser_methane
+    listRule: TryAll
+    priority: 100
+    allowedCellsFilter:
+      - command: Replace
+        tagcommand: DistanceFromTag
+        tag: AtStart
+        minDistance: 1
+        maxDistance: 1
+  # Jungle
+  - names:
+      - geysers/hot_steam
+      - poi/jungle/geyser_chlorine
+    listRule: TryAll
+    priority: 190
+    allowedCellsFilter:
+      - command: Replace
+        tagcommand: DistanceFromTag
+        tag: AtSurface
+        minDistance: 3
+        maxDistance: 3
+  # Frozen
+  - names:
+      - poi/frozen/heatsink_a
+      - poi/frozen/heatsink_b
+      - poi/frozen/heatsink_c
+      - poi/frozen/heatsink_d
+    listRule: GuaranteeSome
+    someCount: 2
+    useRelaxedFiltering: true # Allow placement in feature-heavy biomes
+    priority: 150
+    allowedCellsFilter:
+      - command: Replace
+        zoneTypes: [FrozenWastes]
+  # Magma
+  - names:
+    - geysers/big_volcano
+    - geysers/volcanohole
+    listRule: TryAll
+    useRelaxedFiltering: true # Allow placement in feature-heavy biomes
+    priority: 100
+    allowedCellsFilter:
+      - command: Replace
+        tagcommand: DistanceFromTag
+        tag: AtDepths
+        minDistance: 0
+        maxDistance: 0
+  # Iron & Gold
+  - names:
+      - geysers/molten_iron
+      - geysers/molten_gold
+    listRule: GuaranteeAll
+    useRelaxedFiltering: true # Allow placement in feature-heavy biomes
+    priority: 190
+    allowedCellsFilter:
+      - command: Replace
+#        tagcommand: DistanceFromTag
+#        tag: AtSurface
+#        minDistance: 3
+#        maxDistance: 3
+        zoneTypes: [Moo]
+      - command: ExceptWith  # too close from Lava
+        tagcommand: DistanceFromTag
+        tag: AtStart
+        minDistance: 0
+        maxDistance: 2
+  # ================================ 
+  # - Points of interest - Generic Geysers
+  # ================================ 
+  - names:
+    - geysers/generic
+    listRule: TryOne
+    times: 2
+    ruleId: GenericGeysers
+    allowDuplicates: true
+    allowedCellsFilter:
+      - command: Replace
+        tagcommand: DistanceFromTag
+        tag: AtDepths
+        minDistance: 0
+        maxDistance: 2

@@ -34,7 +34,7 @@ namespace LEM_Working_Backwards.Buildings.NewRecipes
                 fabricators = new List<Tag> { TagManager.Create("GourmetCookingStation") }
             };
 
-            Debug.Log("[LearningElementsMod] Added Gas Range recipe: 100kg Dirt + 100kg Water -> 30kg H2 + 50kg Naphtha + 30kg Solid Ethanol (20s)");
+            Debug.Log("Added Gas Range recipe: 100kg Dirt + 100kg Water -> 30kg H2 + 50kg Naphtha + 30kg Solid Ethanol (20s)");
         }
     }
 }

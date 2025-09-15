@@ -1,0 +1,16 @@
+info:
+  size:
+    X: 2
+    Y: 1
+  area: 2
+cells:
+- element: CarbonDioxide
+  mass: 145.1
+  temperature: 430
+  location_x: 0
+  location_y: 0
+- element: Methane
+  mass: 167.0
+  temperature: 470
+  location_x: 1
+  location_y: 0

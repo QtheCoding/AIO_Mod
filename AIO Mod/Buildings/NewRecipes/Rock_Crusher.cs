@@ -29,7 +29,7 @@ namespace LEM_Working_Backwards.Buildings.NewRecipes
                 fabricators = new List<Tag> { TagManager.Create("RockCrusher") }
             };
 
-            Debug.Log("[LearningElementsMod] Added Rock Crusher recipe (ConfigureBuildingTemplate): Dirt -> Sand");
+            Debug.Log("Added Rock Crusher recipe (ConfigureBuildingTemplate): Dirt -> Sand");
         }
     }
 }

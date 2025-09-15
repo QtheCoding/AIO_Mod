@@ -1,0 +1,11 @@
+info:
+  size:
+    X: 1
+    Y: 1
+  area: 1
+cells:
+- element: Methane
+  mass: 80.4
+  temperature: 470
+  location_x: 0
+  location_y: 0

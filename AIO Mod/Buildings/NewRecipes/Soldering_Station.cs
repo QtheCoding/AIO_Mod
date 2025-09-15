@@ -34,7 +34,7 @@ namespace LEM_Working_Backwards.Buildings.NewRecipes
                 fabricators = new List<Tag> { TagManager.Create("AdvancedCraftingTable") }
             };
 
-            Debug.Log("[LearningElementsMod] Added Soldering Station recipe: 100kg Nickel Ore + 100kg Water -> 30kg H2 + 50kg Naphtha + 30kg Solid Ethanol (20s)");
+            Debug.Log("Added Soldering Station recipe: 100kg Nickel Ore + 100kg Water -> 30kg H2 + 50kg Naphtha + 30kg Solid Ethanol (20s)");
         }
     }
 }

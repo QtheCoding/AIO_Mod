@@ -1,0 +1,11 @@
+info:
+  size:
+    X: 1
+    Y: 1
+  area: 1
+cells:
+- element: Syngas
+  mass: 260.2
+  temperature: 330
+  location_x: 0
+  location_y: 0

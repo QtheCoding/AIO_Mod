@@ -3,11 +3,22 @@ using STRINGS;
 using System;
 using UnityEngine;
 using Klei;
+using System.Diagnostics.Contracts;
 
 namespace AIO_Mod
 {
     public class STRINGS
     {
+        //ModUtil.RegisterForTranslation(typeof (STRINGS));
+        public class CLUSTER_NAMES
+        {
+            public class AIO_CLUSTER
+            {
+                public static LocString NAME = "AIO Cluster";
+                public static LocString DESCRIPTION = "A cluster containing all the biomes from the AIO mod.";
+            }
+        }
+
         public class ELEMENTS
         {
             public class SOLIDBORAX
@@ -36,6 +47,39 @@ namespace AIO_Mod
             {
                 public static LocString NAME = "Neutronium Alloy";
                 public static LocString DESC = "An insanely durable and heat resistant alloy.\nRequired in the construction of large space structures.\nVery sparkly";
+            }
+        }
+
+        public class ITEMS
+        {
+            public class INGREDIENTS
+            {
+                public class RAYONFIBER
+                {
+                    public static LocString NAME = "Rayon Fiber";
+                    public static LocString NAME_PLURAL = "Rayon Fibers";
+                    public static LocString DESC = "Rayon is a synthetic fiber, chemically made from regenerated cellulose extracted from Lumber.";
+                    public static LocString RECIPE_DESC = $"Produces {STRINGS.ITEMS.INGREDIENTS.RAYONFIBER.NAME_PLURAL} from the pulp of {{0}}.";
+                }
+            }
+        }
+
+        public class SUBWORLDS
+        {
+            public class AIO_SUBWORLD_1
+            {
+                public static LocString NAME = "Subworld 1";
+                public static LocString DESC = $"{UI.FormatAsLink("Slime", "SLIMEMOLD")} may not be here.  \nMay have {UI.FormatAsLink("plant life", "PLANTS")} or {UI.FormatAsLink("critters", "CREATURES")}. \n\nLand devoid of {UI.FormatAsLink("liquids", "ELEMENTS_LIQUID")} and minuscule {UI.FormatAsLink("gas", "ELEMENTS_GAS")}, but has {UI.FormatAsLink("solid", "ELEMENTS_SOLID")}";
+                public static LocString UTILITY = $"Land devoid of {UI.FormatAsLink("liquids", "ELEMENTS_LIQUID")} and minuscule {UI.FormatAsLink("gas", "ELEMENTS_GAS")}. \n\nBut has {UI.FormatAsLink("solid", "ELEMENTS_SOLID")}";
+            }
+        }
+
+        public class WORLDS
+        {
+            public class AIO_WORLD_1
+            {
+                public static LocString NAME = "AIO World";
+                public static LocString DESCRIPTION = "A world containing all the biomes from the AIO mod. \n\nHopefully it works.";
             }
         }
     }

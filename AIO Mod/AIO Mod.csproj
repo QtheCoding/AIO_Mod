@@ -70,23 +70,45 @@
     <Compile Include="Buildings\NewRecipes\Exosuit_Forge.cs" />
     <Compile Include="Buildings\NewRecipes\Gas_Range.cs" />
     <Compile Include="Buildings\NewRecipes\Natural_Gas_Generator.cs" />
+    <None Include="anim\Items\rayon_fiber\rayon_fiber_anim.bytes">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="anim\Items\rayon_fiber\rayon_fiber_build.bytes">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Buildings\NewRecipes\Polymer_Press.cs" />
     <Compile Include="Buildings\NewRecipes\Rock_Crusher.cs" />
     <Compile Include="Buildings\NewRecipes\Soldering_Station.cs" />
     <Compile Include="ElementsData\Elements.cs" />
+    <Compile Include="ElementsData\RayonFabricConfig.cs" />
+    <Compile Include="Mod.cs" />
     <Compile Include="Patches\Disease_Patches.cs" />
     <Compile Include="Patches\ElementPatches\ElementLoader_Patches.cs" />
-    <Compile Include="Patches\ElementPatches\Enum_Patches.cs" />
+    <Compile Include="Patches\Enum_Patches.cs" />
     <None Include="anim\Elements\unobtaniumalloy\unobtaniumalloy_anim.bytes">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="anim\Elements\unobtaniumalloy\unobtaniumalloy_build.bytes">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="dlc\expansion1\worldgen\clusters\CustomCluster.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dlc\expansion1\worldgen\worlds\Baator.yaml" />
+    <None Include="dlc\expansion1\worldgen\worlds\Baator_coldterra.yaml" />
+    <None Include="dlc\expansion1\worldgen\worlds\Baator_moonlet.yaml" />
+    <None Include="dlc\expansion1\worldgen\worlds\Baator_oilyswampy.yaml" />
+    <None Include="dlc\expansion1\worldgen\worlds\MiniClusterRadioactiveOceanStart.yaml" />
+    <None Include="dlc\expansion1\worldgen\worlds\AIO_Moonlet.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Patches\ElementPatches\LegacyModMain_Patches.cs" />
     <Compile Include="Patches\Localization_Patches.cs" />
     <Compile Include="Patches\TagSprites\TagUiSprites.cs" />
     <Compile Include="Patches\TagSprites\TagUiSprite_Patches.cs" />
+    <None Include="Patches\WorldGenPatches\Meteor_Patches.cs" />
+    <Compile Include="Patches\WorldGenPatches\Sprite_Patches.cs" />
+    <Compile Include="Patches\WorldGenPatches\Temperature_Patches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="STRINGS.cs" />
     <None Include="elements\AIO_gas.yaml">
@@ -105,13 +127,155 @@
     <None Include="mod_info.yaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Compile Include="ElementsData\TagAssets.cs" />
     <Compile Include="Utils\ElementGrouping.cs" />
     <Compile Include="Utils\ElementInfo.cs" />
     <Compile Include="Utils\ElementUtil.cs" />
     <Compile Include="Utils\GermUtils.cs" />
     <Compile Include="Utils\Logger.cs" />
+    <None Include="templates\bases\Baator_Base.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\bases\Baator_Forestonewayteleport.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\bases\Baator_Swamponewayteleport.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Avernusgasbomb1.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Avernusgasbomb2.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Avernusgasbomb3.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Breakroom.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Caniacryofarm.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Caniaheatsink.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Changingroom.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Disbomb1.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Extractionroom.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Food.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Fridge.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Geyser_Brinypool.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Geyser_Caniaco2.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Geyser_Caniahypoxia.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Geyser_Dissulphurspout.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Geyser_Methanetendrils.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Geyser_Natoriumusen.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Geyser_Rancidwater.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Geyser_Swimmingpool.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Lounge.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Nessuslimonites1.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Nessuslimonites2.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Nessuslimonites3.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Nessuslimonites4.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Nessuslimonites5.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Nessusoozyoil.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Phlegethosmicroblackhole1.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Phlegethosmicroblackhole2.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Phlegethosmicroblackhole3.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Phlegethosmicroblackhole4.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Spacejunk1.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Spacejunk2.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Stygiaheatsink.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Tearoom.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\poi\Baator_Weedfarm.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="worldgen\biomes\Cania.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="worldgen\borders.yaml" />
+    <None Include="worldgen\features\aio\Cania_carbonpool.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="worldgen\features\aio\Cania_chillyhole.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="worldgen\features\aio\Cania_oxygenpool.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="worldgen\mobs.yaml" />
+    <None Include="worldgen\subworlds\aio\Baator_Avernus.yaml" />
+    <None Include="worldgen\subworlds\aio\AIO_CaniaMini.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="worldgen\subworlds\aio\JungleStrange.yaml" />
+    <None Include="worldgen\subworlds\aio\OceanDeep.yaml" />
+    <None Include="worldgen\temperatures.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="anim\worldgen\" />
+    <Folder Include="worldgen\noise\" />
+    <Folder Include="worldgen\storytraits\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="anim\Elements\solid_borax\solid_borax.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -131,6 +295,19 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="anim\Elements\solid_borax\solid_borax_build.bytes">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="anim\Items\rayon_fiber\rayon_fiber.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\sprites\biomeIconBaator.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="assets\sprites\biomeIconColdterra.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

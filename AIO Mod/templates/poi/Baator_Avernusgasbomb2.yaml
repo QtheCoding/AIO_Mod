@@ -1,0 +1,11 @@
+info:
+  size:
+    X: 1
+    Y: 1
+  area: 1
+cells:
+- element: CarbonDioxide
+  mass: 130.5
+  temperature: 430
+  location_x: 0
+  location_y: 0

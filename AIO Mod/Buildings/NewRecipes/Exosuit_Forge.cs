@@ -34,7 +34,7 @@ namespace LearningElementsMod.Buildings.Recipes
                 fabricators = new List<Tag> { TagManager.Create("SuitFabricator") }
             };
 
-            Debug.Log("[LearningElementsMod] Added Exosuit Forge recipe: 100kg Dirt + 100kg Nickel Ore -> 20kg Plastic + 40kg Isosap + 75kg Polluted Mud (60s)");
+            Debug.Log("Added Exosuit Forge recipe: 100kg Dirt + 100kg Nickel Ore -> 20kg Plastic + 40kg Isosap + 75kg Polluted Mud (60s)");
         }
     }
 }

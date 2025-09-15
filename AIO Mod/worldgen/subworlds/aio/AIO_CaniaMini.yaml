@@ -1,0 +1,48 @@
+biomeNoise: noise/subworldJungle
+temperatureRange: ExtremelyCold
+# pdWeight: 1.6
+# minChildCount: 5
+# extraBiomeChildren: 7
+borderOverride: rocky
+density:
+  min: 15
+  max: 20
+avoidRadius: 10.0
+sampleBehaviour: PoissonDisk
+biomes:
+  - name: biomes/Cania/Core
+    weight: 1
+    tags:
+      - ColdWheat
+      - ColdWheatSeed
+      - BaatorWheezewort
+      - BaatorWheezewortSeed
+  - name: biomes/Cania/MetalicIce
+    weight: 1
+    tags:
+      - ColdWheat
+      - ColdWheatSeed
+      - BaatorWheezewort
+      - BaatorWheezewortSeed
+tags:
+  - IgnoreCaveOverride
+features:
+  - type: features/aio/Cania_oxygenpool
+  - type: features/aio/Cania_chillyhole
+  - type: features/aio/Cania_carbonpool
+
+#Moved to worldgen Globalrules
+#subworldTemplateRules:
+#  - names:
+#    - expansion1::poi/poi_geyser_dirty_slush
+#    - expansion1::poi/poi_frozen_salt_water_geyser
+#    listRule: GuaranteeAll
+#    priority: 100
+#    allowedCellsFilter:
+##      - command: IntersectWith
+#      - command: Replace
+#        tagcommand: DistanceFromTag
+#        tag: AtStart
+#        minDistance: 1
+#        maxDistance: 2
+zoneType: FrozenWastes

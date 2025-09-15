@@ -1,0 +1,136 @@
+name: STRINGS.WORLDS.MINIFLIPPED.NAME
+description: STRINGS.WORLDS.MINIFLIPPED.DESCRIPTION
+nameTables: [ FLIPPED ]
+asteroidIcon: asteroid_mini_flipped_kanim
+
+worldTraitScale: 0.20 # Adjust with worldSize. Traits are tuned to base game world sizes.
+worldsize:
+  X: 128
+  Y: 153
+layoutMethod: PowerTree
+
+defaultsOverrides:
+  data:
+    DrawWorldBorderForce: false
+    DrawWorldBorder: true
+    WorldBorderThickness: 5
+    WorldBorderRange: 2
+    OverworldDensityMin: 18
+    OverworldDensityMax: 18
+    OverworldAvoidRadius: 5
+    OverworldSampleBehaviour: PoissonDisk
+    poiPadding: 1
+  startingWorldElements: [] # remove the algae check
+
+worldTraitRules:
+  - min: 1
+    max: 2
+    forbiddenTags:
+      - StartWorldOnly
+      - GenericGeysers
+      - Oil
+      - LargeWorld
+      - StartChange
+      - Core
+      - AboveCore
+      - Surface
+      - Crust
+    forbiddenTraits:
+      - expansion1::traits/CrashedSatellites
+      - expansion1::traits/Volcanoes
+
+
+fixedTraits:
+  - sunlightLow
+  - cosmicRadiationMedLow
+
+seasons:
+  - MiniFlippedMeteorShowers # unused
+
+#------------------------------------------------------------------------------
+
+# List all the subworld files to load
+subworldFiles:
+# Start ----------
+  # - name: expansion1::subworlds/sandstone/SandstoneStart
+  #  overridePower: 1.5
+  # - name: expansion1::subworlds/sandstone/SandstoneMiniWater
+  #   maxCount: 3
+# Start ----------    
+  - name: expansion1::subworlds/sandstone/med_SandstoneResourceful
+  - name: expansion1::subworlds/wasteland/WastelandBeetle
+    minCount: 4
+  - name: expansion1::subworlds/wasteland/WastelandWorm    
+  - name: expansion1::subworlds/frozen/FrozenMedium
+    minCount: 2
+  - name: subworlds/space/Space
+  - name: expansion1::subworlds/space/SpaceWithAbyssaliteBorder
+  - name: subworlds/aio/AIO_CaniaMini
+  - name: expansion1::subworlds/magma/BottomSmallNoUnobtanium
+    overridePower: 1.5
+    
+unknownCellsAllowedSubworlds: 
+  # Fill
+  - tagcommand: Default
+    command: Replace
+    subworldNames:
+      - expansion1::subworlds/wasteland/WastelandBeetle
+      - expansion1::subworlds/frozen/FrozenMedium
+  # START ----------
+  # # Ring-1
+  # - tagcommand: DistanceFromTag
+  #   tag: AtStart
+  #   minDistance: 1
+  #   maxDistance: 1
+  #   command: Replace
+  #   subworldNames:
+  #     - expansion1::subworlds/sandstone/SandstoneMiniWater
+  # START ----------
+  # Space
+  - tagcommand: AtTag
+    tag: AtSurface
+    command: Replace
+    subworldNames:
+      - subworlds/space/Space
+  # Crust
+  - tagcommand: DistanceFromTag
+    tag: AtSurface
+    minDistance: 1
+    maxDistance: 1
+    command: Replace
+    subworldNames:
+      - expansion1::subworlds/space/SpaceWithAbyssaliteBorder
+  # Surface Magma
+  - tagcommand: DistanceFromTag
+    tag: AtSurface
+    minDistance: 2
+    maxDistance: 2
+    command: Replace
+    subworldNames:
+      # - expansion1::subworlds/magma/BottomSmallNoUnobtanium
+      - subworlds/aio/AIO_CaniaMini
+  # Wasteland Layer
+  - tagcommand: DistanceFromTag
+    tag: AtSurface
+    minDistance: 3
+    maxDistance: 3
+    command: Replace
+    subworldNames:
+      - expansion1::subworlds/wasteland/WastelandBeetle
+      - expansion1::subworlds/wasteland/WastelandWorm  
+  # Frozen Layer
+  - tagcommand: DistanceFromTag
+    tag: AtDepths
+    minDistance: 1
+    maxDistance: 1
+    command: Replace
+    subworldNames:
+      - expansion1::subworlds/frozen/FrozenMedium
+  # Core Sandstone
+  - tagcommand: DistanceFromTag
+    tag: AtDepths
+    minDistance: 0
+    maxDistance: 0
+    command: Replace
+    subworldNames:
+      - expansion1::subworlds/sandstone/med_SandstoneResourceful
