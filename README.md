@@ -4,7 +4,7 @@ Slowly but surely making progress, one step at a time.
 
 I have big aspirations for this mod, just need to learn the different parts. My plan is to essentially make an overhaul mod.
 So far: (as of 9/15/2025 || Month/Day/Year)
-  - I have learned to properly add new elements (gas, solid, liquid) into the game, using either custom tile textures and noise, or by copying another element's.
+  - I have learned to properly add new elements (gas, solid, liquid) into the game, using either custom tile textures and noise, or by copying another element's textures.
   - Nearly done learning how to properly add new worldgen features, such as custom clusters, biomes, subworlds, worlds, etc. Just need to figure out how to fix the error when creating custom temperature ranges in the temperatures.yaml file.
   - Next is to add new recipes to existing buildings (already messed with, need to get better), and create new buildings (including but not limited to, power generation, manufacturing, batteries)
   - Trying to learn nearly everything.
